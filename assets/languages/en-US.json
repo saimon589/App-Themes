@@ -4,5 +4,11 @@
   "dark_mode" : "Dark Mode",
   "language" : "Language",
   "common_use" : "Common Use",
-  "rate_us" : "Rate Us"
+  "rate_us" : "Rate Us",
+  "add" : "Add",
+  "sub" : "Sub",
+  "student" : "Student",
+  "teacher" : "Teacher",
+  "provider" : "Provider State Management",
+  "bloc" : "Bloc State Management"
 }

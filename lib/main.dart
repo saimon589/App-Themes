@@ -1,9 +1,11 @@
+import 'package:app_theme/bloc/user_bloc.dart';
 import 'package:app_theme/pages/main_page.dart';
+import 'package:app_theme/providers/count_provider.dart';
 import 'package:app_theme/providers/theme_provider.dart';
-import 'package:app_theme/screens/splash_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 void main()async{
@@ -23,10 +25,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-        create: (BuildContext context){
-          return ThemeProvider();
-        },
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+          create: (BuildContext context)=> ThemeProvider()),
+          ChangeNotifierProvider(
+              create: (BuildContext context)=> CountProvider()),
+          BlocProvider<UserBloc>(create: (context)=> UserBloc()),
+        ],
       child: Consumer<ThemeProvider>(
         builder: (BuildContext context, ThemeProvider tp, Widget? child){
           return MaterialApp(
